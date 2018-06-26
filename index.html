@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Mario Hangman</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="assets/CSS/style.css" />
+</head>
+
+<body>
+    <div class="mainContent">
+        <h1>Hangman</h1>
+        <audio src="../Hangman/assets/Audio/Super Mario Bros Official Theme Song.mp3" autoplay="autoplay" loop="loop"></audio>
+        <audio src=".//assets/Audio/Super Mario Bros Official Theme Song.mp3" autoplay="autoplay" loop="loop">
+                Your browser does not support the audio element.
+                </audio>
+                
+        <img class="marioLogo" src="../Hangman/assets/img/mario text.png" alt="Super-Mario-Logo">
+        <img class="mario1" src="../Hangman/assets/img/bird mario.png" alt="Mario1">
+        <img class="mario2" src="../Hangman/assets/img/mario jumpin.png" alt="mario2">
+        <img class="mario3" src="../Hangman/assets/img/mario better.png" alt="mario2">
+
+        <h2>Press Any Key to Start!</h2>
+        <!-- <div>
+            <button id="Play">Play</button>
+        </div> -->
+
+        <div>
+            <h3 class="card-title">
+                <strong>Word to Guess:</strong>
+            </h3>
+        </div>
+
+
+
+        <div class="card-body">
+            <h3 id="wordBlanks">_ _ _ _ _ _ _ _ _ </h3>
+        </div>
+
+
+
+        <div class="card card-default">
+            <div class="card-body">
+
+                <strong>Wrong Attempts: </strong>
+                <span id="incorrectGuesses"></span>
+
+            </div>
+        </div>
+
+
+        <div class="card card-default">
+            <div class="card-body">
+
+                <!-- This span is where we"ll dump the number of guesses left. Pay attention to the id called ****guesses-left**** we"ll be referencing this in the JavaScript. -->
+                <strong>Guesses Left: </strong>
+                <span id="numberOfguesses">6</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="card card-default">
+
+            <div class="card-body">
+
+
+                <strong># of Wins: </strong>
+                <span id="winCounter">0</span>
+
+            </div>
+
+        </div>
+
+        <div class="card card-default">
+            <div class="card-body">
+
+
+                <strong># of Losses: </strong>
+                <span id="lossCounter">0</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+<script src="assets/js/HMgame.js"></script>
+
+</html>
+
+
+
+
+<!-- <p class="wins">Wins:[]</p>
+        <p class="cWord">Current Word: </p>
+
+        <bold>
+            <p class="slot">[
+                <span id="currentWord"></span>]</p>
+        </bold> -->
+
+<!-- <p class="guessesLeft">Guesses Left:[6]</p>
+        <p class="lettersGuessed"> Letters Guessed:[<span id= "lettersGuessed"></span>]</p> -->
+<!-- <input type="text" id="input"></input> -->
+<!-- <button id = "Guess">Guess</button> -->
+
+
+
+
+
+<!-- <div>
+        <strong>
+            <h2>Game Instructions</h2>
+        </strong>
+        <p>1. A random 4 letter word will be generated </br>for you to guess!</p>
+        <p>2. Select 1 letter on your keyboard!</p>
+        <p>3. Hopefully, that particular letter will corespond </br>with one or more of the 4 letters in the randomly </br>generated
+            word</p>
+        <p>4. You will have 6 attempts to find all the letters of the word</p>
+        <p>5. If you don't reveal the word in 6 attempts, then YOU LOSE!</p>
+        <p>6. Reveal the word in 6 attempts, then YOU WIN!!!!</p>
+    </div> -->

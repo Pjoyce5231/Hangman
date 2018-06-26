@@ -1,0 +1,79 @@
+body {
+background: url("../img/mario\ backgroun.png");
+background-size: 92%;
+background-color: rgb(98, 98, 221);
+}
+
+h1 {
+color: rgb(167, 29, 29);
+padding-top: 70px;
+font-size: 45px;
+text-align: center; 
+font-family: "Impact", Charcoal, sans-serif;
+}
+
+h2 {
+color: rgb(167, 29, 29);
+padding-top: 0px;
+margin: 0px;
+font-size: 45px;
+text-align: left; 
+font-family: "Impact", Charcoal, sans-serif;
+    }
+
+h2 {
+color: rgb(66, 52, 52);
+padding-top: 0px;
+margin: 0px;
+margin-top: 20px;
+font-size: 45px;
+text-align: center; 
+font-family: "Impact", Charcoal, sans-serif;
+}
+
+.mainContent{
+text-align: center;
+font-size: 14px;
+font-family:"Arial Black", Gadget, sans-serif;
+color:red;
+}
+
+.marioLogo {
+position: fixed;
+top: 0px;
+left: 480px;
+width: 200px;
+height: 150px;
+}
+
+.mario1 {
+position: fixed;
+top: 25px;
+left: 950px;
+width: 200px;
+height: 200px;
+}
+
+.mario2 {
+position: fixed;
+top: 265px;
+left: 855px;
+width: 150px;
+height: 150px;
+}
+
+.mario3 {
+position: fixed;
+top: 430px;
+left: 315px;
+width: 150px;
+height: 150px;
+}
+
+#Play {
+    color:green;
+    position:relative;
+    background-color: #555555;
+    color: black;
+    
+}

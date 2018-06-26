@@ -1,142 +1,146 @@
-//this portion holds all of the variables to use throughout the js
 
 
-var wordList = ["mario", "luigi", "peach", "daisy", "yoshi", "pipe", "castle", "flag", "mushroom", "toad", "bowswer", "shell", "koopa", "boo", "shyguy", "goomba"];
-var chosenWord = "";
-var lettersInRandomWord = [];
-var guesses = 0;
-var inputString = [];
-var incorrectGuesses = [];
-var letterGuessed = "";
-var winCounter = 0;
-var lossCounter = 0;
-var numberOfguesses = 6;
+    //this portion holds all of the variables to use throughout the js
+    var wordList = ["mario", "luigi", "peach", "daisy", "yoshi", "pipe", "castle", "flag", "mushroom", "toad", "bowswer", "shell", "koopa", "boo", "shyguy", "goomba"];
+    var chosenWord = "";
+    var lettersInRandomWord = [];
+    var guesses = 0;
+    var inputString = [];
+    var incorrectGuesses = [];
+    var letterGuessed = "";
+    var winCounter = 0;
+    var lossCounter = 0;
+    var numberOfguesses = 6;
 
 
 
-//this is the function that initiates/starts the game
-function initiateGame() {
-    numberOfguesses = 6;
-    chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
-    lettersInChosenWord = chosenWord.split("");
-    guesses = lettersInChosenWord.length;
-    console.log(chosenWord);
-    inputString = [];
-    incorrectGuesses = [];
 
-    for (var i = 0; i < guesses; i++) {
-        inputString.push("_");
+    //this is the function that initiates/starts the game
+    function initiateGame() {
+        numberOfguesses = 6;
+        chosenWord = wordList[Math.floor(Math.random() * wordList.length)];
+        lettersInChosenWord = chosenWord.split("");
+        guesses = lettersInChosenWord.length;
+        console.log(chosenWord);
+        inputString = [];
+        incorrectGuesses = [];
+
+        for (var i = 0; i < guesses; i++) {
+            inputString.push("_");
+        }
+        console.log(inputString);
+
+        document.getElementById("numberOfguesses").innerHTML = numberOfguesses;
+        document.getElementById("wordBlanks").innerHTML = inputString.join("_ ");
+        document.getElementById("incorrectGuesses").innerHTML = incorrectGuesses.join(" ");
     }
-    console.log(inputString);
-
-    document.getElementById("numberOfguesses").innerHTML = numberOfguesses;
-    document.getElementById("wordBlanks").innerHTML = inputString.join("_ ");
-    document.getElementById("incorrectGuesses").innerHTML = incorrectGuesses.join(" ");
-}
 
 
 
-//this function SHOULD check the letter and determine whether or not 
-//it is in the random generated word or not
-function checkLetters(letter) {
-
-    var letterInWord = true;
-
-    if (letterInWord) {
 
 
-        for (var i = 0; i < chosenWord.length; i++) {
 
-            if (chosenWord.charAt(i) === letter)
 
-                inputString[i] = letter;
+    //this function SHOULD check the letter and determine whether or not 
+    //it is in the random generated word or not
+    function checkLetters(letter) {
+
+        var letterInWord = true;
+
+        if (letterInWord) {
+
+
+            for (var i = 0; i < chosenWord.length; i++) {
+
+                if (chosenWord.charAt(i) === letter)
+
+                    inputString[i] = letter;
+            }
+
+
+            console.log(inputString);
+        }
+
+        else {
+
+            document.getElementById("wordBlanks").innerHTML = inputString.join("_ ");
+
+        }
+
+        var letterInWord = false;
+        if (letterInWord) {
+
+
+            for (var j = 0; j < guesses; j++) {
+
+                if (chosenWord[j] === letter) {
+
+                    inputString[j] = letter;
+                }
+            }
+            console.log(inputString);
         }
 
 
-        console.log(inputString);
+        else {
+
+            incorrectGuesses.push(letter);
+
+            guesses--;
+
+        }
     }
 
-    else {
+
+
+
+
+
+
+
+    //this function should run once the round is complete and log your 
+    //win/loss and
+    //re-generate the random word 
+    function roundComplete() {
+        console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + " | guesses: " + numberOfguesses);
+
+        document.getElementById("numberOfguesses").innerHTML = guesses;
 
         document.getElementById("wordBlanks").innerHTML = inputString.join("_ ");
 
-    }
-
-    var letterInWord = false;
-    if (letterInWord) {
+        document.getElementById("incorrectGuesses").innerHTML = incorrectGuesses.join(" ");
 
 
-        for (var j = 0; j < guesses; j++) {
+        if (lettersInChosenWord.toString() === inputString.toString()) {
 
-            if (chosenWord[j] === letter) {
+            winCounter++;
 
-                inputString[j] = letter;
-            }
+            alert("You Win! Too bad Peach is in a different castle!!");
+
+            document.getElementById("winCounter").innerHTML = winCounter;
+            initiateGame();
         }
-        console.log(inputString);
-    }
 
 
-    else {
+        else if (guesses === 0) {
 
-        incorrectGuesses.push(letter);
+            lossCounter++;
 
-        guesses--;
+            alert("Bowser has taken the Princess!");
 
-    }
-}
+            document.getElementById("lossCounter").innerHTML = lossCounter;
+            initiateGame();
 
-
-
-
-
-
-
-//this function should run once the round is complete and log your win/loss and
-//re-generate the random word 
-function roundComplete() {
-    console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter + " | guesses: " + numberOfguesses);
-
-    document.getElementById("numberOfguesses").innerHTML = guesses;
-
-    document.getElementById("wordBlanks").innerHTML = inputString.join("_ ");
-
-    document.getElementById("incorrectGuesses").innerHTML = incorrectGuesses.join(" ");
-
-
-    if (lettersInChosenWord.toString() === inputString.toString()) {
-
-        winCounter++;
-
-        alert("You've defeated Bowser!!");
-
-        document.getElementById("winCounter").innerHTML = winCounter;
-        initiateGame();
-    }
-
-
-    else if (guesses === 0) {
-
-        lossCounter++;
-
-        alert("Bowser has taken the Princess!");
-
-        document.getElementById("lossCounter").innerHTML = lossCounter;
-        initiateGame();
+        }
 
     }
 
-}
-
-initiateGame();
 
 
-//this allows the user to select a key to try to guess the random word
-document.onkeydown = function (letter) {
-    letterGuessed = String.fromCharCode(letter.which).toLowerCase();
-    checkLetters(letterGuessed);
-    roundComplete();
-};
+
+
+    //this reinitiates the game while logging wins and losses
+    initiateGame();
 
 
 
@@ -144,16 +148,12 @@ document.onkeydown = function (letter) {
 
 
 
-
-
-
-
-  // if (letter === -1) {
-    //     console.log("!");
-    //     guesses++;
-    //     document.getElementById(chosenWord).innerHTML += letter;
-    // }
-
+    //this allows the user to select a key to try to guess the random word
+    document.onkeydown = function (letter) {
+        letterGuessed = String.fromCharCode(letter.which).toLowerCase();
+        checkLetters(letterGuessed);
+        roundComplete();
+    };
 
 
 

@@ -12,11 +12,7 @@
 <body>
     <div class="mainContent">
         <h1>Hangman</h1>
-        <audio src="../Hangman/assets/Audio/Super Mario Bros Official Theme Song.mp3" autoplay="autoplay" loop="loop"></audio>
-        <audio src=".//assets/Audio/Super Mario Bros Official Theme Song.mp3" autoplay="autoplay" loop="loop">
-                Your browser does not support the audio element.
-                </audio>
-                
+
         <img class="marioLogo" src="../Hangman/assets/img/mario text.png" alt="Super-Mario-Logo">
         <img class="mario1" src="../Hangman/assets/img/bird mario.png" alt="Mario1">
         <img class="mario2" src="../Hangman/assets/img/mario jumpin.png" alt="mario2">
@@ -86,6 +82,16 @@
 
         </div>
 
+
+
+        <!-- audio to start when page is loaded -->
+        <div class="audio">
+            <audio controls autoplay>
+                <source src="assets/Audio/Super Mario Bros Official Theme Song.mp3" type="audio/ogg">
+                <source src="assets/Audio/Super Mario Bros Official Theme Song.mp3" type="audio/mpeg">
+                <!-- Your browser does not support the audio element. -->
+            </audio>
+        </div>
     </div>
 
 </body>
